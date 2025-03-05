@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Reflex</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <h2>Allison relexes</h2>
+
+  <button type="button"
+  class="btn btn-primary"
+  onclick="buttonPress2()">
+  Click me change the color.</button>
+  
+  <p id="target">I will become red </p>
+  <div id="target">Your time</div>
+  <div id="counter">Count</div>
+
+  <button type="button">Go</button>
+  <button id ="haltButton" type="button">Halt</button>
+  
+  <script> 
+    var haltTime = undefined
+    
+    function recordTime() {
+        haltTime = Date.now()
+        console.log("Halt time:", haltTime)
+    }
+
+    document.getElementById("haltButton").onclick = recordTime
+
+    function buttonPress1() {
+        setTimeout(function(){
+        document.getElementById('target').style.color = "red"
+        }, 3000)
+     }
+
+    function buttonPress2() {
+        setTimeout(()=>
+        document.getElementById('target').style.color = "red"
+        , 3000)
+    } 
+  </script>
+
+</body>
+</html>
