@@ -25,7 +25,7 @@
 
 <body>
     <h2>Allison builds list with divs</h2>
-		<div class="flex-container" id="target">
+		<div class="flex-container" id="flexContainer">
 		  <div class="divlist">row item 1</div>   
 		  <div class="divlist">row item 2</div>  
 		  <div class="divlist">row item 3</div>  
@@ -33,34 +33,46 @@
 	
 	<p> Press the button to create an new element of type div and then add it to the container.
 		</p>
-		<button onclick="makeNewDiv()">Add end</button>
+	<button id="addEndButton">Add end</button>
     
     <input type="text" id="myInput">
+    <button id="addFrontButton">Add front</button>
+    <button id="removeButton">Remove</button>
 	
 	
 </body>
 <script>
+    document.getElementById("addEndButton").onclick = function() {
+            const newDiv = document.createElement("div")
+            const inputValue = document.getElementById("myInput").value
 
-    const inputValue = document.getElementById("myInput").value
-    const newDiv = document.createElement("div")
+            newDiv.innerHTML = inputValue
+            newDiv.className = "divlist"
 
-    newDiv.innerHTML = inputValue
-    newDiv.className = "divlist"
+            document.getElementById("flexContainer").appendChild(newDiv)
+            document.getElementById("myInput").value = ""
+        };
 
-    document.getElementById("flexContainer").appendChild(newDiv)
-    document.getElementById("myInput").value = ""
+        document.getElementById("removeButton").onclick = function() {
+            const divListItems = document.getElementsByClassName("divlist")
+            const length = divListItems.length
 
+            if (length > 0) {
+                const middleIndex = Math.floor(length / 2)
+                document.getElementById("flexContainer").removeChild(divListItems[middleIndex])
+            }
+        };
 
-	function makeNewDiv(){
-		/* make the div and its text */
-		let element = document.createElement("div")
-		element.innerHTML = "an item after 3"
-		element.style.color = "orange"
+        document.getElementById("addFrontButton").onclick = function() {
+            const newDiv = document.createElement("div")
+            const inputValue = document.getElementById("myInput").value
+            const container = document.getElementById("flexContainer")
 
-		/* add it to the container */
-		let container = document.getElementById('target')
-		container.appendChild(element)
-		
-	}
+            newDiv.innerHTML = inputValue
+            newDiv.className = "divlist"
+
+            container.insertBefore(newDiv, container.firstChild)
+            document.getElementById("myInput").value = ""
+        }
 </script>
 </html>	
