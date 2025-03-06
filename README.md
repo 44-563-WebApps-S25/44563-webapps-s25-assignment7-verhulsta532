@@ -4,3 +4,4 @@ An assignment on java script modifying the DOM and using anonymous callback func
 
 Hosted by <https://44-563-webapps-s25.github.io/44563-webapps-s25-assignment7-verhulsta532/>
 <file:///C:/Users/s548114/OneDrive%20-%20nwmissouri.edu/Documents/webapps-repos/44563-webapps-s25-assignment7-verhulsta532/treasure.html>
+[Uploading divs.html…]()
