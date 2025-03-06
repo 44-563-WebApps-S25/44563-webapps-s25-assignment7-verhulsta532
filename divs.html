@@ -51,7 +51,7 @@
 
             document.getElementById("flexContainer").appendChild(newDiv)
             document.getElementById("myInput").value = ""
-        };
+        }
 
         document.getElementById("removeButton").onclick = function() {
             const divListItems = document.getElementsByClassName("divlist")
@@ -61,7 +61,7 @@
                 const middleIndex = Math.floor(length / 2)
                 document.getElementById("flexContainer").removeChild(divListItems[middleIndex])
             }
-        };
+        }
 
         document.getElementById("addFrontButton").onclick = function() {
             const newDiv = document.createElement("div")
@@ -74,5 +74,7 @@
             container.insertBefore(newDiv, container.firstChild)
             document.getElementById("myInput").value = ""
         }
+
+
 </script>
 </html>	
